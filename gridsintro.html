@@ -3,46 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid Introduction</title>
+    <title>Document</title>
     <style>
-        .item{
-            background-color: orange;
-            border: 1px solid black;
-
+        body{
+            background-color: silver;
         }
-        .grid-container{
+        .box{
+            color: white;
+            padding: 20px;
+            font-size: 18px;
+            text-align: center;
+            
+        }
+        .box:nth-child(even){
+            background-color: red;
+        }
+        .box:nth-child(odd){
+            background-color: blue;
+        }
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(3,1fr); /*1fr 2fr 1fr;*/ /*divides in fraction */
-            grid-template-rows: 100px 200px 100px;
-            gap: 2px;
-        }
-        .item1{
-            grid-column: 1/3; /* from 1st to 3rd column*/ /*how much rows and cols will be consuming should be defined in element itself not in parent*/
-            grid-row: 1/2;
-        }
-        .item2{
-            grid-column: 3/4;
-            grid-row: 1/3;
-        }
-        .item6{
-            grid-column: 2/4;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            background-color: silver;
+            padding: 10px;
+            margin-bottom: 10px;
+                        }
 
-
+        .container{
+            border: 2px solid black;
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 20px;
         }
-        
+
     </style>
 </head>
 <body>
-    <!--grid is way to layout elements on webpage-->
-    <div class="grid-container">
-        <div class="item item1">1</div>
-        <div class="item item2">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
-        <div class="item item6">6</div>
+    <h1>Css Grid Masterclass Demo</h1>
+    <div class="container">
+        <h2>1. Basic Grid (3x3)</h2>
+        <div class="grid-container" style="grid-template-columns: repeat(3,1fr);">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">9</div>
+        </div>
     </div>
-    
-    
-</body>
-</html>
+
+    <div class="container">
+        <h2>2.Grid with different column size</h2>
+        <div class="grid-container" style="grid-template-columns: 1fr 2fr 1fr">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+           
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h2>3.Grid with gap</h2>
+        <div class="grid-container" style="grid-template-columns: repeat(3,1fr); gap: 20px;">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+    </div>
+
+       <div class="container">
+        <h2>4.Grid Item Placement</h2>
+        <div class="grid-container" style="grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(3,100px);">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>5.Grid Template Area</h2>
+        <div class="grid-container" style="grid-template-areas: 'header header header header' 'sidebar main main main' 'footer footer footer footer';">
+            <!--divides into fraction gives 4 to header , 1 to sidebar along neigbour 3 to main , 4 to footer -->
+            <div class="box" style="grid-area: header;">Header</div>
+            <div class="box" style="grid-area: sidebar;">Sidebar</div>
+            <div class="box" style="grid-area: main;">Main Content</div>
+            <div class="box" style="grid-area: footer;">Footer</div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>6.Auto-Fit and Minmax</h2>
+        <div class="grid-container" style="grid-template-columns:repeat(auto-fit,minmax(100px,1fr));">
+            <!--divides into fraction gives 4 to header , 1 to sidebar along neigbour 3 to main , 4 to footer -->
+            <div class="box" style="grid-area: header;">Header</div>
+            <div class="box" style="grid-area: sidebar;">Sidebar</div>
+            <div class="box" style="grid-area: main;">Main Content</div>
+            <div class="box" style="grid-area: footer;">Footer</div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>7.Alignment and Justification</h2>
+        <div class="grid-container" style="grid-template-columns:repeat(3,1fr); height: 200px; align-items:center;">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>8.Nested Grids</h2>
+        <div class="grid-container" style="grid-template-columns: 1fr 1fr; justify-content: center;">
+            <div class="box">1</div>
+            <div class="grid-container" style="grid-template-columns: 1fr 1fr;">
+            <div class="box" style=" background-color:green">2</div>
+            <div class="box" style=" background-color:green">3</div>
+            <div class="box" style=" background-color:green">4</div>
+            <div class="box" style=" background-color:green">5</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>9.Grids with Auto Rows</h2>
+        <div class="grid-container"
+        style="grid-template-columns: repeat(3,1fr);
+        grid-auto-rows: minmax(100px,auto);">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box" style="padding: 40px;">5 (taller content) and
+                there is more content</div>
+            <div class="box">6</div>
+            </div>
+        </div>
+    </div>
