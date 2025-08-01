@@ -1,4 +1,3 @@
-# grid-explaination
 # 🎯 CSS Grid Masterclass Demo
 
 This project showcases various implementations of CSS Grid layout techniques, designed to help developers visualize and understand how grids work in real-world scenarios.
